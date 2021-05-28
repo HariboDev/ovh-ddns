@@ -1,0 +1,15 @@
+[Unit]
+Description=OVH DDNS
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=300
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /usr/local/sbin/ovh-ddns.py
+
+[Install]
+WantedBy=default.target
